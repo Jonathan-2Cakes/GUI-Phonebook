@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.lang.*;
 
 class Entry {
     public String name, number, note;
@@ -18,6 +19,8 @@ public class Phonebook {
                 " \"e\" for enter," +
                 " \"f\" for find," +
                 " \"l\" for listing all the entries," +
+                " \"a\" for alphabetizing entries," +
+                " \"m\" for merging entries," +
                 " \"q\" to quit.");
         Command = null;
         C = ' ';
@@ -35,7 +38,11 @@ public class Phonebook {
                     else System.out.println("**No entry with code " + code); break;
                 case 'l':
                     listAllContacts(); break;
+                case 'a':
+                    
+                case 'm': 
                 case 'q':
+                        
                     CopyPhoneBookToFile("PhoneBook1.txt");
                     System.out.println("Quitting the application. All the entries are "
                             + "stored in the file PhoneBook1.txt"); break;
@@ -91,6 +98,7 @@ public class Phonebook {
             i++;
         }
     }
+
     public static void CopyPhoneBookToFile(String FileName) throws Exception{
         FileOutputStream out = new FileOutputStream(FileName);
         PrintStream P = new PrintStream( out );
